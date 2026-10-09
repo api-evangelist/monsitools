@@ -1,0 +1,28 @@
+aid: monsitools
+name: MonsiTools
+description: 'MonsiTools is a company surfaced via the API Evangelist harvest backlog (source: new-submission)
+  and added to the network as a stub for full-pipeline profiling.'
+url: https://raw.githubusercontent.com/api-evangelist/monsitools/refs/heads/main/apis.yml
+x-type: company
+x-source: harvest:new-submission
+x-tier: stub
+x-tier-reason: harvest
+specificationVersion: '0.20'
+created: '2026-10-09'
+modified: '2026-10-09'
+tags:
+- Company
+apis: []
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+common:
+- type: Website
+  url: https://monsitools.com
+- type: Documentation
+  url: https://monsitools.com/developers
+x-submission-notes: Calculator JSON API
+x-submission-probe: OpenAPI 3.1 5 ops; invented path 404
+x-submitted-by: monsibdtheadventurer@gmail.com (apis.io/add, 2026-10-09)
