@@ -1,0 +1,45 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/monsitools-openapi.yml
+vocabulary:
+  name: MonsiTools Domain Vocabulary
+  description: 'Terms declared by MonsiTools''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-09'
+  terms:
+  - term: CalculateRequest
+    definition: 'Object declared by the contract with fields: slug, inputs.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/CalculateRequest
+  - term: CalculateResult
+    definition: 'Object declared by the contract with fields: ok, slug, name, inputs, result.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/CalculateResult
+  - term: Error
+    definition: 'Object declared by the contract with fields: ok, error, message.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/Error
+  - term: Tool
+    definition: 'Object declared by the contract with fields: name, category, inputs, formula, premium.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/Tool
+  - term: ApiUsage
+    definition: 'Object declared by the contract with fields: month, calls, errors, topTools, lastUsed, lastStatus, previousMonth.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/ApiUsage
+  - term: ApiKeyStatus
+    definition: 'Object declared by the contract with fields: ok, hasKey, createdAt, hint, usage.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/ApiKeyStatus
+  - term: ApiKeyCreated
+    definition: 'Object declared by the contract with fields: ok, key, createdAt, note.'
+    tags:
+    - Object
+    source: openapi/monsitools-openapi.yml#/components/schemas/ApiKeyCreated

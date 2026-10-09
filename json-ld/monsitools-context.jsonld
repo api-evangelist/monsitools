@@ -1,0 +1,111 @@
+{
+  "@context": {
+    "@vocab": "https://monsitools.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "monsitools": "https://monsitools.com/schema#",
+    "CalculateRequest": "monsitools:CalculateRequest",
+    "slug": {
+      "@id": "monsitools:slug",
+      "@type": "xsd:string"
+    },
+    "inputs": {
+      "@id": "monsitools:inputs"
+    },
+    "CalculateResult": "monsitools:CalculateResult",
+    "ok": {
+      "@id": "monsitools:ok"
+    },
+    "name": {
+      "@id": "monsitools:name",
+      "@type": "xsd:string"
+    },
+    "result": {
+      "@id": "monsitools:result",
+      "@type": "xsd:decimal"
+    },
+    "Error": "monsitools:Error",
+    "error": {
+      "@id": "monsitools:error",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "monsitools:message",
+      "@type": "xsd:string"
+    },
+    "Tool": "monsitools:Tool",
+    "category": {
+      "@id": "monsitools:category",
+      "@type": "xsd:string"
+    },
+    "formula": {
+      "@id": "monsitools:formula",
+      "@type": "xsd:string"
+    },
+    "premium": {
+      "@id": "monsitools:premium",
+      "@type": "xsd:boolean"
+    },
+    "ApiUsage": "monsitools:ApiUsage",
+    "month": {
+      "@id": "monsitools:month",
+      "@type": "xsd:string"
+    },
+    "calls": {
+      "@id": "monsitools:calls",
+      "@type": "xsd:integer"
+    },
+    "errors": {
+      "@id": "monsitools:errors",
+      "@type": "xsd:integer"
+    },
+    "topTools": {
+      "@id": "monsitools:topTools",
+      "@container": "@list"
+    },
+    "lastUsed": {
+      "@id": "monsitools:lastUsed",
+      "@type": "xsd:dateTime"
+    },
+    "lastStatus": {
+      "@id": "monsitools:lastStatus",
+      "@type": "xsd:integer"
+    },
+    "previousMonth": {
+      "@id": "monsitools:previousMonth"
+    },
+    "ApiKeyStatus": "monsitools:ApiKeyStatus",
+    "hasKey": {
+      "@id": "monsitools:hasKey",
+      "@type": "xsd:boolean"
+    },
+    "createdAt": {
+      "@id": "monsitools:createdAt",
+      "@type": "xsd:dateTime"
+    },
+    "hint": {
+      "@id": "monsitools:hint",
+      "@type": "xsd:string"
+    },
+    "usage": {
+      "@id": "monsitools:usage"
+    },
+    "ApiKeyCreated": "monsitools:ApiKeyCreated",
+    "key": {
+      "@id": "monsitools:key",
+      "@type": "xsd:string"
+    },
+    "note": {
+      "@id": "monsitools:note",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "MonsiTools API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects MonsiTools's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-09) from openapi/monsitools-openapi.yml.",
+  "dcterms:created": "2026-10-09",
+  "dcterms:source": [
+    "openapi/monsitools-openapi.yml"
+  ]
+}

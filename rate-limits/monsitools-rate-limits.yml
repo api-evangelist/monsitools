@@ -1,0 +1,14 @@
+generated: '2026-10-09'
+method: searched
+source: https://monsitools.com/openapi.json
+name: MonsiTools Calculation API rate limits
+limit_count: 1
+limits:
+- name: Calculation API per account
+  limit_text: Premium accounts, 60 requests per minute
+  max: 60
+  limit: 60
+  window: minute
+  plan: Premium
+  scope: per-account
+note: Stated in the provider's OpenAPI info.description; response headers on exhaustion are not documented.

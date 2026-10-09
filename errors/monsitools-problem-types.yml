@@ -1,0 +1,62 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/monsitools-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: Error
+coverage:
+  operations: 5
+  statuses_declared: 7
+problems:
+- status: 400
+  title: Bad Request
+  description: Malformed body, no slug, or missing inputs.
+  operations: 1
+  media_types:
+  - application/json
+  schema: Error
+- status: 401
+  title: Unauthorized
+  description: Not signed in.
+  operations: 4
+  media_types:
+  - application/json
+  schema: Error
+- status: 403
+  title: Forbidden
+  description: The account is not Premium.
+  operations: 3
+  media_types:
+  - application/json
+  schema: Error
+- status: 404
+  title: Not Found
+  description: No such tool, or not available through the API.
+  operations: 1
+  media_types:
+  - application/json
+  schema: Error
+- status: 422
+  title: Unprocessable Content
+  description: The inputs could not be calculated (for example, not numbers).
+  operations: 1
+  media_types:
+  - application/json
+  schema: Error
+- status: 429
+  title: Too Many Requests
+  description: More than 60 requests in a minute.
+  operations: 1
+  media_types:
+  - application/json
+  schema: Error
+- status: 500
+  title: Internal Server Error
+  description: Server problem; retry later.
+  operations: 1
+  media_types:
+  - application/json
+  schema: Error

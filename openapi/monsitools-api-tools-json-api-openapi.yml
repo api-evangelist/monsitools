@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: Monsitools Api Tools.json API
+  version: 1.0.0
+  termsOfService: https://monsitools.com/terms
+  description: 'Operations tagged Api Tools.json across 2 of this provider''s published API definitions: monsitools-openapi.json, monsitools-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://monsitools.com
+security:
+- bearerAuth: []
+tags:
+- name: Api Tools.json
+paths:
+  /api-tools.json:
+    get:
+      operationId: listTools
+      summary: Every tool the API accepts, with its input ids
+      security: []
+      responses:
+        '200':
+          description: Map of slug to tool.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/Tool'
+      tags:
+      - Api Tools.json
+    servers:
+    - url: https://monsitools.com
+components:
+  schemas:
+    Tool:
+      type: object
+      properties:
+        name:
+          type: string
+        category:
+          type: string
+        inputs:
+          type: array
+          items:
+            type: string
+        formula:
+          type: string
+        premium:
+          type: boolean
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: An API key (mt_live_...) for /api/calculate; a signed-in session token for /api/keys.
+x-refined-from:
+- monsitools-openapi.json
+- monsitools-openapi.yml

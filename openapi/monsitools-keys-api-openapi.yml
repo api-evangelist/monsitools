@@ -1,0 +1,212 @@
+openapi: 3.2.0
+info:
+  title: Monsitools Keys API
+  version: 1.0.0
+  termsOfService: https://monsitools.com/terms
+  description: 'Operations tagged Keys across 2 of this provider''s published API definitions: monsitools-openapi.json, monsitools-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://monsitools.com
+security:
+- bearerAuth: []
+tags:
+- name: Keys
+paths:
+  /api/keys:
+    get:
+      operationId: getApiKey
+      summary: Key status and this month's usage
+      description: Requires a signed-in session token (the dashboard uses this).
+      responses:
+        '200':
+          description: Status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKeyStatus'
+        '401':
+          description: Not signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                ok: false
+                error: auth_required
+                message: Human-readable explanation.
+        '403':
+          description: The account is not Premium.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                ok: false
+                error: premium_required
+                message: Human-readable explanation.
+      tags:
+      - Keys
+    post:
+      operationId: createApiKey
+      summary: Create or replace the account's API key
+      description: The key is shown once. Creating a new one revokes the old one.
+      responses:
+        '200':
+          description: The new key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKeyCreated'
+        '401':
+          description: Not signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                ok: false
+                error: auth_required
+                message: Human-readable explanation.
+        '403':
+          description: The account is not Premium.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                ok: false
+                error: premium_required
+                message: Human-readable explanation.
+      tags:
+      - Keys
+    delete:
+      operationId: revokeApiKey
+      summary: Revoke the account's API key
+      responses:
+        '200':
+          description: Revoked.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    const: true
+                  revoked:
+                    const: true
+        '401':
+          description: Not signed in.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                ok: false
+                error: auth_required
+                message: Human-readable explanation.
+      tags:
+      - Keys
+    servers:
+    - url: https://monsitools.com
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+      - ok
+      - error
+      properties:
+        ok:
+          const: false
+        error:
+          type: string
+          enum:
+          - invalid_json_body
+          - missing_slug
+          - auth_required
+          - premium_required
+          - rate_limited
+          - tool_not_available
+          - missing_inputs
+          - calculation_error
+          - method_not_allowed
+          - server_error
+        message:
+          type: string
+    ApiKeyCreated:
+      type: object
+      properties:
+        ok:
+          const: true
+        key:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        note:
+          type: string
+    ApiKeyStatus:
+      type: object
+      properties:
+        ok:
+          const: true
+        hasKey:
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        hint:
+          type:
+          - string
+          - 'null'
+          description: Last four characters of the key.
+        usage:
+          oneOf:
+          - $ref: '#/components/schemas/ApiUsage'
+          - type: 'null'
+    ApiUsage:
+      type: object
+      properties:
+        month:
+          type: string
+          description: YYYY-MM, UTC.
+        calls:
+          type: integer
+        errors:
+          type: integer
+        topTools:
+          type: array
+          items:
+            type: object
+            properties:
+              slug:
+                type: string
+              calls:
+                type: integer
+        lastUsed:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        lastStatus:
+          type:
+          - integer
+          - 'null'
+        previousMonth:
+          type:
+          - object
+          - 'null'
+          properties:
+            month:
+              type: string
+            calls:
+              type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: An API key (mt_live_...) for /api/calculate; a signed-in session token for /api/keys.
+x-refined-from:
+- monsitools-openapi.json
+- monsitools-openapi.yml

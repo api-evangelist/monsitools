@@ -1,0 +1,19 @@
+generated: '2026-10-09'
+method: derived
+source: mcp/monsitools-mcp.yml + openapi/monsitools-openapi.yml
+crosswalk:
+- tool: calculate
+  rest: ['POST /api/calculate']
+  binding: name+semantics
+  confidence: medium
+- tool: search_calculators
+  rest: ['GET /api-tools.json']
+  binding: semantics (tool catalog lookup)
+  confidence: low
+- tool: describe_calculator
+  rest: ['GET /api-tools.json']
+  binding: semantics (tool input ids)
+  confidence: low
+rest_only: ['GET /api/keys','POST /api/keys','DELETE /api/keys']
+surfaces: {openapi: openapi/monsitools-openapi.yml, mcp: https://monsitools.com/mcp}
+note: Operations bound by method+path; the spec's operationIds were not used as identifiers here.

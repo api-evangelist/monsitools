@@ -1,0 +1,41 @@
+# MonsiTools
+
+> MonsiTools is a calculator and workflow builder. People build a calculator by typing a formula in plain words, then chain calculators into workflows where each result carries into the next step. A JSON API and a remote MCP server (https://monsitools.com/mcp) let AI assistants, Google Sheets and Zapier run the same calculators. It ships with 1262 ready-made browser-based calculators and data tools for business, finance, SaaS metrics, ecommerce, marketing and everyday math, plus a Data Workbench for cleaning CSV, JSON and Excel files. Calculations run in the visitor's browser. A limited number of uses is included; Premium removes the limit.
+
+## Main pages
+- [Build a calculator](https://monsitools.com/build-tool): turn a plain-words formula into a calculator with labelled fields, then save or share it
+- [Build a workflow](https://monsitools.com/build-workflow): line up any calculators, including your own, so each answer feeds the next
+- [Workflows](https://monsitools.com/workflows): ready-made chains of calculators that pass results from step to step
+- [All calculators](https://monsitools.com/calculate): search and browse every ready-made calculator
+- [Data Workbench](https://monsitools.com/data-workbench): clean, reshape, pivot and export tabular files in the browser
+- [Glossary](https://monsitools.com/glossary): definitions of the business and finance terms the tools use
+- [Guides](https://monsitools.com/guides): cross-category frameworks such as pricing a product or deciding whether to hire
+- [Pricing](https://monsitools.com/pricing): the limited tier and Premium plans
+- [What's new](https://monsitools.com/whats-new): recent features
+
+## Categories
+- [Accounting & Finance](https://monsitools.com/category-accounting-finance): 81 tools
+- [SaaS Metrics](https://monsitools.com/category-saas-metrics): 56 tools
+- [Ecommerce & Profitability](https://monsitools.com/category-ecommerce-profitability): 77 tools
+- [Analytics & Marketing](https://monsitools.com/category-analytics-marketing): 67 tools
+- [Business Management](https://monsitools.com/category-business-management): 83 tools
+- [AI Productivity](https://monsitools.com/category-ai-productivity): 56 tools
+- [Compliance & Business](https://monsitools.com/category-compliance-business): 57 tools
+- [Content Creator Tools](https://monsitools.com/category-content-creator-tools): 128 tools
+- [SEO & Website](https://monsitools.com/category-seo-website): 63 tools
+- [Shopify / Web Dev](https://monsitools.com/category-shopify-web-dev): 86 tools
+- [Data Processing](https://monsitools.com/category-data-processing): 134 tools
+- [System Utilities](https://monsitools.com/category-system-utilities): 228 tools
+- [Everyday & Lifestyle](https://monsitools.com/category-everyday-lifestyle): 110 tools
+- [Encoding & Ciphers](https://monsitools.com/category-encoding-ciphers): 36 tools
+
+## For AI assistants and developers
+- [Embed a calculator](https://monsitools.com/embed): put a working calculator on your own page with one snippet
+- [Developer docs](https://monsitools.com/developers): MCP server and JSON API setup, tools, examples and limits
+- MCP server: https://monsitools.com/mcp (Streamable HTTP). Tools: search_calculators, describe_calculator, calculate. Searching and describing need no key. calculate runs 10 calculations a day per IP address without a key; a Premium API key sent as a Bearer token removes that limit.
+- JSON API: POST https://monsitools.com/api/calculate with a Premium API key. Machine-readable spec: https://monsitools.com/openapi.json
+- Calculator list for the API: https://monsitools.com/api-tools.json
+
+## Optional
+- [Sitemap](https://monsitools.com/sitemap.xml)
+- [RSS feed of calculators](https://monsitools.com/feed.xml)

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/monsitools/main/json-schema/monsitools-api-key-created-schema.json",
+  "title": "ApiKeyCreated",
+  "x-generated": "2026-10-09",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/monsitools-openapi.yml#/components/schemas/ApiKeyCreated",
+  "type": "object",
+  "properties": {
+    "ok": {
+      "const": true
+    },
+    "key": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

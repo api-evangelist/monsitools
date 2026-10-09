@@ -1,0 +1,13 @@
+generated: '2026-10-09'
+method: derived
+source: openapi/monsitools-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: An API key (mt_live_...) for /api/calculate; a signed-in session token for /api/keys.
+  sources:
+  - openapi/monsitools-openapi.yml

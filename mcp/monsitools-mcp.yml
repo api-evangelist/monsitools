@@ -1,0 +1,62 @@
+generated: '2026-10-09'
+method: probed
+source: https://monsitools.com/mcp (POST tools/list, HTTP 200, anonymous)
+name: MonsiTools MCP Server
+url: https://monsitools.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://monsitools.com/mcp
+  auth: unknown
+  verified: probed
+tools:
+- name: search_calculators
+  description: Find MonsiTools calculators by keyword (for example 'runway', 'break
+    even', 'roas', 'loan payment'). Returns each match's slug, name, category and
+    input names. Use describe_calculator for details, then calculate to run one.
+  inputSchema:
+    type: object
+    properties:
+      query:
+        type: string
+        description: Words to match against calculator names, categories and input
+          names.
+      category:
+        type: string
+        description: Optional exact category name, e.g. 'SaaS Metrics'.
+      limit:
+        type: integer
+        minimum: 1
+        maximum: 50
+        description: Maximum results (default 10).
+    required:
+    - query
+- name: describe_calculator
+  description: Returns a calculator's name, category, formula, input names and page
+    URL, given its slug.
+  inputSchema:
+    type: object
+    properties:
+      slug:
+        type: string
+        description: Calculator slug, e.g. 'saas-runway-calculator'.
+    required:
+    - slug
+- name: calculate
+  description: 'Runs a MonsiTools calculator on the given inputs and returns the result.
+    Works without a key for 10 calculations a day per IP address. A MonsiTools Premium
+    API key, sent as ''Authorization: Bearer mt_live_...'' when connecting, removes
+    the daily limit.'
+  inputSchema:
+    type: object
+    properties:
+      slug:
+        type: string
+        description: Calculator slug from search_calculators.
+      inputs:
+        type: object
+        description: Input name to number, for every input the calculator lists.
+        additionalProperties:
+          type: number
+    required:
+    - slug
+    - inputs
