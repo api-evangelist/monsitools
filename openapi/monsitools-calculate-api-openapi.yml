@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Monsitools Calculate API
+  title: MonsiTools Calculation Calculate API
   version: 1.0.0
   termsOfService: https://monsitools.com/terms
-  description: 'Operations tagged Calculate across 2 of this provider''s published API definitions: monsitools-openapi.json, monsitools-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Send a calculator''s inputs, get its result back as JSON. Premium accounts, 60 requests per minute. Authenticate with an API key from Dashboard > API access (Authorization: Bearer mt_live_...). Tools and their input ids: /api-tools.json. Every call made with your account is counted in its usage, shown on the dashboard.'
 servers:
 - url: https://monsitools.com
 security:
@@ -106,56 +106,8 @@ paths:
                 message: Human-readable explanation.
       tags:
       - Calculate
-    servers:
-    - url: https://monsitools.com
 components:
   schemas:
-    Error:
-      type: object
-      required:
-      - ok
-      - error
-      properties:
-        ok:
-          const: false
-        error:
-          type: string
-          enum:
-          - invalid_json_body
-          - missing_slug
-          - auth_required
-          - premium_required
-          - rate_limited
-          - tool_not_available
-          - missing_inputs
-          - calculation_error
-          - method_not_allowed
-          - server_error
-        message:
-          type: string
-    CalculateResult:
-      type: object
-      required:
-      - ok
-      - slug
-      - name
-      - inputs
-      - result
-      properties:
-        ok:
-          const: true
-        slug:
-          type: string
-        name:
-          type: string
-        inputs:
-          type: object
-          additionalProperties:
-            type:
-            - number
-            - string
-        result:
-          type: number
     CalculateRequest:
       type: object
       required:
@@ -942,11 +894,54 @@ components:
             type:
             - number
             - string
+    CalculateResult:
+      type: object
+      required:
+      - ok
+      - slug
+      - name
+      - inputs
+      - result
+      properties:
+        ok:
+          const: true
+        slug:
+          type: string
+        name:
+          type: string
+        inputs:
+          type: object
+          additionalProperties:
+            type:
+            - number
+            - string
+        result:
+          type: number
+    Error:
+      type: object
+      required:
+      - ok
+      - error
+      properties:
+        ok:
+          const: false
+        error:
+          type: string
+          enum:
+          - invalid_json_body
+          - missing_slug
+          - auth_required
+          - premium_required
+          - rate_limited
+          - tool_not_available
+          - missing_inputs
+          - calculation_error
+          - method_not_allowed
+          - server_error
+        message:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       description: An API key (mt_live_...) for /api/calculate; a signed-in session token for /api/keys.
-x-refined-from:
-- monsitools-openapi.json
-- monsitools-openapi.yml

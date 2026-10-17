@@ -1,20 +1,18 @@
 {
   "provider": "monsitools",
   "sources": [
-    "_original/monsitools-openapi.json",
-    "monsitools-openapi.yml"
+    "_original/monsitools-openapi.json"
   ],
   "outputs": [
     "monsitools-api-tools-json-api-openapi.yml",
     "monsitools-calculate-api-openapi.yml",
     "monsitools-keys-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/monsitools-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "monsitools-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "monsitools-openapi.json: tagged paths POST /api/calculate -> Calculate",
@@ -25,19 +23,12 @@
     "monsitools-openapi.json: declared missing tag: Api Tools.json",
     "monsitools-openapi.json: declared missing tag: Calculate",
     "monsitools-openapi.json: declared missing tag: Keys",
-    "monsitools-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "monsitools-openapi.yml: tagged paths POST /api/calculate -> Calculate",
-    "monsitools-openapi.yml: tagged paths GET /api/keys -> Keys",
-    "monsitools-openapi.yml: tagged paths POST /api/keys -> Keys",
-    "monsitools-openapi.yml: tagged paths DELETE /api/keys -> Keys",
-    "monsitools-openapi.yml: tagged paths GET /api-tools.json -> Api Tools.json",
-    "monsitools-openapi.yml: declared missing tag: Api Tools.json",
-    "monsitools-openapi.yml: declared missing tag: Calculate",
-    "monsitools-openapi.yml: declared missing tag: Keys",
-    "tag 'Api Tools.json' spans 2 source specs (monsitools-openapi.json, monsitools-openapi.yml): per-path servers applied",
-    "tag 'Calculate' spans 2 source specs (monsitools-openapi.json, monsitools-openapi.yml): per-path servers applied",
-    "tag 'Keys' spans 2 source specs (monsitools-openapi.json, monsitools-openapi.yml): per-path servers applied",
-    "apis.yml register: written (+3 apis, 4 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/monsitools-openapi.yml: archived document superseded by a larger archived document",
+    "monsitools-api-tools-json-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "monsitools-calculate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "monsitools-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

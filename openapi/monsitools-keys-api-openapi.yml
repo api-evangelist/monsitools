@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Monsitools Keys API
+  title: MonsiTools Calculation Keys API
   version: 1.0.0
   termsOfService: https://monsitools.com/terms
-  description: 'Operations tagged Keys across 2 of this provider''s published API definitions: monsitools-openapi.json, monsitools-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Send a calculator''s inputs, get its result back as JSON. Premium accounts, 60 requests per minute. Authenticate with an API key from Dashboard > API access (Authorization: Bearer mt_live_...). Tools and their input ids: /api-tools.json. Every call made with your account is counted in its usage, shown on the dashboard.'
 servers:
 - url: https://monsitools.com
 security:
@@ -105,10 +105,29 @@ paths:
                 message: Human-readable explanation.
       tags:
       - Keys
-    servers:
-    - url: https://monsitools.com
 components:
   schemas:
+    ApiKeyStatus:
+      type: object
+      properties:
+        ok:
+          const: true
+        hasKey:
+          type: boolean
+        createdAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        hint:
+          type:
+          - string
+          - 'null'
+          description: Last four characters of the key.
+        usage:
+          oneOf:
+          - $ref: '#/components/schemas/ApiUsage'
+          - type: 'null'
     Error:
       type: object
       required:
@@ -144,27 +163,6 @@ components:
           format: date-time
         note:
           type: string
-    ApiKeyStatus:
-      type: object
-      properties:
-        ok:
-          const: true
-        hasKey:
-          type: boolean
-        createdAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        hint:
-          type:
-          - string
-          - 'null'
-          description: Last four characters of the key.
-        usage:
-          oneOf:
-          - $ref: '#/components/schemas/ApiUsage'
-          - type: 'null'
     ApiUsage:
       type: object
       properties:
@@ -207,6 +205,3 @@ components:
       type: http
       scheme: bearer
       description: An API key (mt_live_...) for /api/calculate; a signed-in session token for /api/keys.
-x-refined-from:
-- monsitools-openapi.json
-- monsitools-openapi.yml

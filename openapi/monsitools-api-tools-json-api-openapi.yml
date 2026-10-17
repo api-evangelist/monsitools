@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Monsitools Api Tools.json API
+  title: MonsiTools Calculation Api Tools.json API
   version: 1.0.0
   termsOfService: https://monsitools.com/terms
-  description: 'Operations tagged Api Tools.json across 2 of this provider''s published API definitions: monsitools-openapi.json, monsitools-openapi.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Send a calculator''s inputs, get its result back as JSON. Premium accounts, 60 requests per minute. Authenticate with an API key from Dashboard > API access (Authorization: Bearer mt_live_...). Tools and their input ids: /api-tools.json. Every call made with your account is counted in its usage, shown on the dashboard.'
 servers:
 - url: https://monsitools.com
 security:
@@ -27,8 +27,6 @@ paths:
                   $ref: '#/components/schemas/Tool'
       tags:
       - Api Tools.json
-    servers:
-    - url: https://monsitools.com
 components:
   schemas:
     Tool:
@@ -51,6 +49,3 @@ components:
       type: http
       scheme: bearer
       description: An API key (mt_live_...) for /api/calculate; a signed-in session token for /api/keys.
-x-refined-from:
-- monsitools-openapi.json
-- monsitools-openapi.yml
