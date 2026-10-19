@@ -1,0 +1,12 @@
+{
+ "url": "https://monsitools.com/openapi.json",
+ "requested_url": "https://monsitools.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 46969,
+ "sha256": "b108ffaf6a262c16cb906afd3c862d0734d88331ea57cebf6b090b7b184c436d",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
