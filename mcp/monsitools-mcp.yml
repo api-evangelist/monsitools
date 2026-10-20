@@ -10,16 +10,15 @@ deployment:
   verified: probed
 tools:
 - name: search_calculators
-  description: Find MonsiTools calculators by keyword (for example 'runway', 'break
-    even', 'roas', 'loan payment'). Returns each match's slug, name, category and
-    input names. Use describe_calculator for details, then calculate to run one.
+  description: Find MonsiTools calculators by keyword (for example 'runway', 'break even', 'roas', 'loan
+    payment'). Returns each match's slug, name, category and input names. Use describe_calculator for
+    details, then calculate to run one.
   inputSchema:
     type: object
     properties:
       query:
         type: string
-        description: Words to match against calculator names, categories and input
-          names.
+        description: Words to match against calculator names, categories and input names.
       category:
         type: string
         description: Optional exact category name, e.g. 'SaaS Metrics'.
@@ -31,8 +30,7 @@ tools:
     required:
     - query
 - name: describe_calculator
-  description: Returns a calculator's name, category, formula, input names and page
-    URL, given its slug.
+  description: Returns a calculator's name, category, formula, input names and page URL, given its slug.
   inputSchema:
     type: object
     properties:
@@ -42,10 +40,9 @@ tools:
     required:
     - slug
 - name: calculate
-  description: 'Runs a MonsiTools calculator on the given inputs and returns the result.
-    Works without a key for 10 calculations a day per IP address. A MonsiTools Premium
-    API key, sent as ''Authorization: Bearer mt_live_...'' when connecting, removes
-    the daily limit.'
+  description: 'Runs a MonsiTools calculator on the given inputs and returns the result. Works without
+    a key for 10 calculations a day per IP address. A MonsiTools Premium API key, sent as ''Authorization:
+    Bearer mt_live_...'' when connecting, removes the daily limit.'
   inputSchema:
     type: object
     properties:
@@ -60,3 +57,28 @@ tools:
     required:
     - slug
     - inputs
+tool_quality:
+  tool_count: 3
+  tokens_total: 450
+  tokens_per_tool_median: 171
+  heavy_tools: []
+  heavy_tool_count: 0
+  params_total: 6
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 3
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 0
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/monsitools-mcp-tools.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
